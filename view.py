@@ -17,20 +17,17 @@ def main():
 	i_lcd = LCD.LCD()
 
 	# Initialise display
+	# Send some test
+	i_lcd.lcd_string("LCD",i_lcd.LCD_LINE_1)
+	i_lcd.lcd_string("dekita",i_lcd.LCD_LINE_2)
 
 	while True:
 		result = instance.read()
 		if result.temperature != 0 and result.humidity != 0 :
-			print" temperature = ",result.temperature,"C","Humidity = ",result.humidity,"%"
+			# print " temperature = ",result.temperature,"C","Humidity = ",result.humidity,"%"
 
 			st_temp = str(result.temperature) + " " + "C"
 			st_humid = str(result.humidity) + " " + "%"
-
-			# Send some test
-			i_lcd.lcd_string(st_temp,i_lcd.LCD_LINE_1)
-			i_lcd.lcd_string(st_humid,i_lcd.LCD_LINE_2)
-
-			time.sleep(3)
 
 			time.sleep(3)
 
