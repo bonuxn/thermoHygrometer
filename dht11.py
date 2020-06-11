@@ -42,11 +42,11 @@ class DHT11:
 		
 		# collect data into an array
 		data = self.__collect_input()
-		print "data = " , data
+		# print "data = " , data
 		
 		# parse lengths of all data pull up periods
 		pull_up_lengths = self.__parse_data_pull_up_lengths(data)
-		print "pull_up_lengths = ",pull_up_lengths
+		# print "pull_up_lengths = ",pull_up_lengths
 
 		# if bit count mismatch, return error (4 byte data + 1 byte checksum)
 		if len(pull_up_lengths) != 40:
@@ -54,10 +54,10 @@ class DHT11:
 		
 		# calculate bits from lengths of the pull up periods
 		bits = self.__calculate_bits(pull_up_lengths)
-		print "bits =",bits
+		# print "bits =",bits
 		# we have the bits, calculate bytes
 		the_bytes = self.__bits_to_bytes(bits)
-		print "the_bytes",the_bytes
+		# print "the_bytes",the_bytes
 
 		# calculate checksum and check
 		checksum = self.__calculate_checksum(the_bytes)
