@@ -18,8 +18,6 @@ def main():
 
 	# Initialise display
 	# Send some test
-	i_lcd.lcd_string("LCD",i_lcd.LCD_LINE_1)
-	i_lcd.lcd_string("dekita",i_lcd.LCD_LINE_2)
 
 	while True:
 		result = instance.read()
@@ -28,6 +26,9 @@ def main():
 
 			st_temp = str(result.temperature) + " " + "C"
 			st_humid = str(result.humidity) + " " + "%"
+
+			i_lcd.lcd_string(st_temp,i_lcd.LCD_LINE_1)
+			i_lcd.lcd_string(st_humid,i_lcd.LCD_LINE_2)
 
 			time.sleep(3)
 
